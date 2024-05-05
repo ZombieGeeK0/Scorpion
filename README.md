@@ -19,6 +19,8 @@
 
     python3 main.py
 
+<hr>
+
 ![image](https://github.com/ZombieGeeK0/Scorpion/assets/158185295/108c88e5-cd9c-47f7-8e39-eb152d565ba6)
 
 `[~]` Contacta conmigo a través de `Discord` mandando una invitación a `qwfkr.`
